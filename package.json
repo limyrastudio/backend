@@ -1,0 +1,22 @@
+{
+  "name": "limyra-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create limyra-db",
+    "db:migrate": "wrangler d1 execute limyra-db --file=./schema.sql",
+    "db:seed": "wrangler d1 execute limyra-db --file=./seed.sql",
+    "db:migrate:local": "wrangler d1 execute limyra-db --local --file=./schema.sql",
+    "db:seed:local": "wrangler d1 execute limyra-db --local --file=./seed.sql",
+    "db:reset:local": "wrangler d1 execute limyra-db --local --file=./schema.sql && wrangler d1 execute limyra-db --local --file=./seed.sql"
+  },
+  "dependencies": {
+    "hono": "^4.12.23"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241022.0",
+    "wrangler": "^4.95.0"
+  }
+}

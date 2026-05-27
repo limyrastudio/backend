@@ -1,0 +1,6 @@
+JWT_SECRET=change-this-to-a-long-random-string-in-production
+SETUP_KEY=my-one-time-setup-key-123
+FRONTEND_URL=http://localhost:3000
+CLOUDINARY_CLOUD=your_cloud_name
+CLOUDINARY_KEY=your_api_key
+CLOUDINARY_SECRET=your_api_secret

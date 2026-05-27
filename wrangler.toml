@@ -1,0 +1,13 @@
+name = "limyra-api"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "limyra-db"
+database_id = "23f56dd1-c2d1-4453-8046-c2d7ac7b1f3e"
+
+[vars]
+FRONTEND_URL = "https://limyra.studio"
+
+# Local dev secrets → copy .dev.vars.example to .dev.vars and fill in
