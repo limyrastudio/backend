@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS journal_posts (
 -- -----------------------------------------------
 CREATE TABLE IF NOT EXISTS team_members (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
-  name       TEXT    NOT NULL,
+  name       TEXT    NOT NULL UNIQUE,
   role_tr    TEXT    NOT NULL,
   role_en    TEXT    NOT NULL DEFAULT '',
   avatar     TEXT,
@@ -115,7 +115,8 @@ CREATE TABLE IF NOT EXISTS press_mentions (
   project_name TEXT    NOT NULL,
   source       TEXT    NOT NULL,
   note         TEXT    NOT NULL DEFAULT '',
-  sort_order   INTEGER NOT NULL DEFAULT 0
+  sort_order   INTEGER NOT NULL DEFAULT 0,
+  UNIQUE(year, project_name, source)
 );
 
 -- -----------------------------------------------
@@ -151,7 +152,7 @@ CREATE TABLE IF NOT EXISTS settings (
 -- -----------------------------------------------
 CREATE TABLE IF NOT EXISTS approach_pillars (
   id          INTEGER PRIMARY KEY AUTOINCREMENT,
-  num         TEXT    NOT NULL DEFAULT '',
+  num         TEXT    NOT NULL DEFAULT '' UNIQUE,
   label_tr    TEXT    NOT NULL DEFAULT '',
   label_en    TEXT    NOT NULL DEFAULT '',
   title_tr    TEXT    NOT NULL DEFAULT '',
@@ -167,7 +168,7 @@ CREATE TABLE IF NOT EXISTS approach_pillars (
 
 CREATE TABLE IF NOT EXISTS approach_stages (
   id             INTEGER PRIMARY KEY AUTOINCREMENT,
-  num            TEXT    NOT NULL DEFAULT '',
+  num            TEXT    NOT NULL DEFAULT '' UNIQUE,
   title_tr       TEXT    NOT NULL DEFAULT '',
   title_en       TEXT    NOT NULL DEFAULT '',
   duration       TEXT    NOT NULL DEFAULT '',
@@ -178,7 +179,7 @@ CREATE TABLE IF NOT EXISTS approach_stages (
 
 CREATE TABLE IF NOT EXISTS approach_principles (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
-  yes_tr     TEXT    NOT NULL DEFAULT '',
+  yes_tr     TEXT    NOT NULL DEFAULT '' UNIQUE,
   yes_en     TEXT    NOT NULL DEFAULT '',
   no_tr      TEXT    NOT NULL DEFAULT '',
   no_en      TEXT    NOT NULL DEFAULT '',
@@ -187,7 +188,7 @@ CREATE TABLE IF NOT EXISTS approach_principles (
 
 CREATE TABLE IF NOT EXISTS approach_materials (
   id          INTEGER PRIMARY KEY AUTOINCREMENT,
-  name_tr     TEXT    NOT NULL DEFAULT '',
+  name_tr     TEXT    NOT NULL DEFAULT '' UNIQUE,
   name_en     TEXT    NOT NULL DEFAULT '',
   subtitle    TEXT    NOT NULL DEFAULT '',
   bg_gradient TEXT    NOT NULL DEFAULT '',

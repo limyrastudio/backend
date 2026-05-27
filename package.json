@@ -10,7 +10,9 @@
     "db:seed": "wrangler d1 execute limyra-db --file=./seed.sql",
     "db:migrate:local": "wrangler d1 execute limyra-db --local --file=./schema.sql",
     "db:seed:local": "wrangler d1 execute limyra-db --local --file=./seed.sql",
-    "db:reset:local": "wrangler d1 execute limyra-db --local --file=./schema.sql && wrangler d1 execute limyra-db --local --file=./seed.sql"
+    "db:reset:local": "wrangler d1 execute limyra-db --local --file=./schema.sql && wrangler d1 execute limyra-db --local --file=./seed.sql",
+    "db:cleanup:local": "wrangler d1 execute limyra-db --local --file=./cleanup.sql",
+    "db:cleanup": "wrangler d1 execute limyra-db --file=./cleanup.sql"
   },
   "dependencies": {
     "hono": "^4.12.23"
