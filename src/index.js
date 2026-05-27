@@ -8,8 +8,15 @@ const app = new Hono();
 // -----------------------------------------------
 app.use('*', cors({
   origin: (origin, c) => {
-    const allowed = c.env.FRONTEND_URL || 'http://localhost:3000';
-    if (!origin || origin === allowed || origin.startsWith('http://localhost')) return origin;
+    const allowedOrigins = [
+      c.env.FRONTEND_URL || 'http://localhost:3000',
+      'https://limyrastudio.com',
+      'https://www.limyrastudio.com',
+      'https://admin.limyrastudio.com',
+      'https://limyrastudio.pages.dev',
+      'https://limyrastudio-admin.pages.dev',
+    ];
+    if (!origin || allowedOrigins.includes(origin) || origin.startsWith('http://localhost')) return origin;
     return null;
   },
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
